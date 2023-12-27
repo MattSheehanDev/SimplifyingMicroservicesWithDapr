@@ -1,0 +1,181 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-appointment",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Dapr.Appointment/Dapr.Appointment.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-patient",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Dapr.Patient/Dapr.Patient.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-patient-grpc",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Dapr.Patient-Grpc/Dapr.Patient-Grpc.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-balance",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Dapr.Balance/Dapr.Balance.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "appId": "appointment-service",
+            "appPort": 5003,
+            "httpPort": 5010,
+            "grpcPort": 50010,
+            "metricsPort": 9091,
+            "resourcesPath": "./components",
+            "appProtocol": "http",
+            "enableMtls": false,
+            "label": "daprd-debug-appointment",
+            "type": "daprd",
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "beginsPattern": "^.*Starting Dapr Runtime.*",
+                    "endsPattern": "^.*waiting on port.*"
+                }
+            },
+            "dependsOn": "build-appointment"
+        },
+        {
+            "appId": "patient-service",
+            "appPort": 5002,
+            "httpPort": 5020,
+            "grpcPort": 50020,
+            "metricsPort": 9092,
+            "resourcesPath": "./components",
+            "appProtocol": "http",
+            "enableMtls": false,
+            "label": "daprd-debug-patient",
+            "type": "daprd",
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "beginsPattern": "^.*Starting Dapr Runtime.*",
+                    "endsPattern": "^.*waiting on port.*"
+                }
+            },
+            "dependsOn": "build-patient"
+        },
+        {
+            "appId": "patient-service",
+            "appPort": 5002,
+            "httpPort": 5020,
+            "grpcPort": 50020,
+            "metricsPort": 9092,
+            "resourcesPath": "./components",
+            "appProtocol": "grpc",
+            "enableMtls": false,
+            "label": "daprd-debug-patient-grpc",
+            "type": "daprd",
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "beginsPattern": "^.*Starting Dapr Runtime.*",
+                    "endsPattern": "^.*waiting on port.*"
+                }
+            },
+            "dependsOn": "build-patient-grpc"
+        },
+        {
+            "appId": "balance-service",
+            "appPort": 5004,
+            "httpPort": 5040,
+            "grpcPort": 50040,
+            "metricsPort": 9092,
+            "resourcesPath": "./components",
+            "appProtocol": "http",
+            "enableMtls": false,
+            "label": "daprd-debug-balance",
+            "type": "daprd",
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "beginsPattern": "^.*Starting Dapr Runtime.*",
+                    "endsPattern": "^.*waiting on port.*"
+                }
+            },
+            "dependsOn": "build-balance"
+        },
+        {
+            "appId": "appointment-service",
+            "label": "daprd-down-appointment",
+            "type": "daprd-down"
+        },
+        {
+            "appId": "patient-service",
+            "label": "daprd-down-patient-grpc",
+            "type": "daprd-down"
+        },
+        {
+            "appId": "patient-service",
+            "label": "daprd-down-patient",
+            "type": "daprd-down"
+        },
+        {
+            "appId": "balance-service",
+            "label": "daprd-down-balance",
+            "type": "daprd-down"
+        }
+    ]
+}

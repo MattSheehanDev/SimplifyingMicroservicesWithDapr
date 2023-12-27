@@ -1,0 +1,11 @@
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/bin/Debug/net8.0/Dapr.Common.deps.json
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/bin/Debug/net8.0/Dapr.Common.dll
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/bin/Debug/net8.0/Dapr.Common.pdb
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.AssemblyInfoInputs.cache
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.AssemblyInfo.cs
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.csproj.CoreCompileInputs.cache
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.dll
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/refint/Dapr.Common.dll
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/Dapr.Common.pdb
+/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/Debug/net8.0/ref/Dapr.Common.dll

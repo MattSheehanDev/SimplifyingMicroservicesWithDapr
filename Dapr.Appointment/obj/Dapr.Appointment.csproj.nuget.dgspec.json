@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment/Dapr.Appointment.csproj": {}
+  },
+  "projects": {
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/Dapr.Appointment.Dto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/Dapr.Appointment.Dto.csproj",
+        "projectName": "Dapr.Appointment.Dto",
+        "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/Dapr.Appointment.Dto.csproj",
+        "packagesPath": "/Users/matthewsheehan/.nuget/packages/",
+        "outputPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/matthewsheehan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment/Dapr.Appointment.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment/Dapr.Appointment.csproj",
+        "projectName": "Dapr.Appointment",
+        "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment/Dapr.Appointment.csproj",
+        "packagesPath": "/Users/matthewsheehan/.nuget/packages/",
+        "outputPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/matthewsheehan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/Dapr.Appointment.Dto.csproj": {
+                "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Appointment.Dto/Dapr.Appointment.Dto.csproj"
+              },
+              "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/Dapr.Common.csproj": {
+                "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/Dapr.Common.csproj"
+              },
+              "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj": {
+                "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapr.AspNetCore": {
+              "target": "Package",
+              "version": "[1.12.0, )"
+            },
+            "Google.Api.CommonProtos": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.19.4, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.42.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.52.0, )"
+            },
+            "Grpc.Tools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.43.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/Dapr.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/Dapr.Common.csproj",
+        "projectName": "Dapr.Common",
+        "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/Dapr.Common.csproj",
+        "packagesPath": "/Users/matthewsheehan/.nuget/packages/",
+        "outputPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Common/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/matthewsheehan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj",
+        "projectName": "Dapr.Patient.Dto",
+        "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj",
+        "packagesPath": "/Users/matthewsheehan/.nuget/packages/",
+        "outputPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/matthewsheehan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

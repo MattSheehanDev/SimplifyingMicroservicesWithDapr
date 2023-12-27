@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Dapr.Patient-Grpc.props" />
+</Project>

@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj": {}
+  },
+  "projects": {
+    "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj",
+        "projectName": "Dapr.Patient.Dto",
+        "projectPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/Dapr.Patient.Dto.csproj",
+        "packagesPath": "/Users/matthewsheehan/.nuget/packages/",
+        "outputPath": "/Users/matthewsheehan/Projects/SimplifyingMicroservicesWithDapr/Dapr.Patient.Dto/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/matthewsheehan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

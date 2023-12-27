@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iT8bE/wDAXFrU63x9wmSlRVbrL/unnHbCdziVwXZp3U=",
+  "Source": "Dapr.Patient",
+  "BasePath": "_content/Dapr.Patient",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

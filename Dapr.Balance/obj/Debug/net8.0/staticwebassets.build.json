@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "+9PIpjs5ZZP5cvE/uYYvZDaU+nqMjRYBBOU09yftJcg=",
+  "Source": "Dapr.Balance",
+  "BasePath": "_content/Dapr.Balance",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Dapr.Appointment.Dto/1.0.0": {
+        "runtime": {
+          "Dapr.Appointment.Dto.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Dapr.Appointment.Dto/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
