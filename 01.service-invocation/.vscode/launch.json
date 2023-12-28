@@ -1,0 +1,81 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch w/Dapr (Appointment)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "daprd-debug-appointment",
+            "program": "${workspaceFolder}/Dapr.Appointment/bin/Debug/net8.0/Dapr.Appointment.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Dapr.Appointment",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://+:5003",
+                "DAPR_HTTP_PORT": "5010",
+                "DAPR_GRPC_PORT": "50010"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "postDebugTask": "daprd-down-appointment"
+        },
+        {
+            "name": ".NET Core Launch w/Dapr (Patient)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "daprd-debug-patient",
+            "program": "${workspaceFolder}/Dapr.Patient/bin/Debug/net8.0/Dapr.Patient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Dapr.Patient",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://+:5002",
+                "DAPR_HTTP_PORT": "5020",
+                "DAPR_GRPC_PORT": "50020"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "postDebugTask": "daprd-down-patient"
+        },
+        {
+            "name": ".NET Core Launch w/Dapr (Patient-Grpc)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "daprd-debug-patient-grpc",
+            "program": "${workspaceFolder}/Dapr.Patient-Grpc/bin/Debug/net8.0/Dapr.Patient-Grpc.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Dapr.Patient-Grpc",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://+:5002",
+                "DAPR_HTTP_PORT": "5020",
+                "DAPR_GRPC_PORT": "50020"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "postDebugTask": "daprd-down-grpc"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Appointment + Patient",
+            "configurations": [
+                ".NET Core Launch w/Dapr (Patient)",
+                ".NET Core Launch w/Dapr (Appointment)"
+            ]
+        },
+        {
+            "name": "Appointment + Patient-Grpc",
+            "configurations": [
+                ".NET Core Launch w/Dapr (Patient-Grpc)",
+                ".NET Core Launch w/Dapr (Appointment)"
+            ]
+        }
+    ]
+}
