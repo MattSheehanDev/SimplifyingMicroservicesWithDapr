@@ -1,0 +1,60 @@
+@url= localhost
+@apptserviceDaprPort = 5010
+
+###
+# @name scheduleRequest
+POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/invoke/appointment-service/method/schedule HTTP/1.1
+Content-Type: application/json
+
+{
+    "AppointmentDateTime": "2024-01-11T08:00:00",
+    "PatientFirstName": "Matt",
+    "PatientLastName": "Sheehan",
+    "Practitioner": "Dr. Acula"
+}
+
+###
+@appointmentId = {{scheduleRequest.response.body.$.appointmentId}}
+@patientId = {{scheduleRequest.response.body.$.patientId}}
+
+# @name scheduleRequest
+POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/invoke/appointment-service/method/schedule HTTP/1.1
+Content-Type: application/json
+
+{
+    "AppointmentId": "{{appointmentId}}",
+    "PatientId": "{{patientId}}",
+    "AppointmentDateTime": "2024-01-11T09:00:00",
+    "PatientFirstName": "Matt",
+    "PatientLastName": "Sheehan"
+}
+
+###
+@appointmentId = {{scheduleRequest.response.body.$.appointmentId}}
+
+# @name claimRequest
+POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/invoke/appointment-service/method/submitclaim HTTP/1.1
+Content-Type: application/json
+
+{
+    "AppointmentId": "{{appointmentId}}",
+    "Amount": 100.00
+}
+
+# ###
+# @apptId = {{scheduleRequest.response.body.AppointmentId.$}}
+# GET http://{{orderserviceUrl}}:{{orderserviceDaprPort}}/v1.0/state/statestore/{{orderId}} HTTP/1.1
+
+# ###
+# @topicName = OnOrder_Submitted
+# POST http://{{orderserviceUrl}}:{{orderserviceDaprPort}}/v1.0/publish/pubsub/{{topicName}} HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "Items": [
+#         {
+#             "ProductCode": "cookie1",
+#             "Quantity": 3
+#         }
+#     ]
+# }
