@@ -42,26 +42,6 @@
             "postDebugTask": "daprd-down-patient"
         },
         {
-            "name": ".NET Core Launch w/Dapr (Patient-Grpc)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "daprd-debug-patient-grpc",
-            "program": "${workspaceFolder}/Dapr.Patient-Grpc/bin/Debug/net8.0/Dapr.Patient-Grpc.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/Dapr.Patient-Grpc",
-            "stopAtEntry": false,
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_URLS": "http://+:5002",
-                "DAPR_HTTP_PORT": "5020",
-                "DAPR_GRPC_PORT": "50020"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
-            },
-            "postDebugTask": "daprd-down-patient-grpc"
-        },
-        {
             "name": ".NET Core Launch w/Dapr (Balance)",
             "type": "coreclr",
             "request": "launch",

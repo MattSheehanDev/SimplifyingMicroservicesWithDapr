@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Balance", "Dapr.Balanc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Appointment.Dto", "Dapr.Appointment.Dto\Dapr.Appointment.Dto.csproj", "{892991C9-0C4C-48B9-B179-332D47F2AE1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Patient-Grpc", "Dapr.Patient-Grpc\Dapr.Patient-Grpc.csproj", "{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}"
-EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,17 +100,5 @@ Global
 		{892991C9-0C4C-48B9-B179-332D47F2AE1B}.Release|x64.Build.0 = Release|Any CPU
 		{892991C9-0C4C-48B9-B179-332D47F2AE1B}.Release|x86.ActiveCfg = Release|Any CPU
 		{892991C9-0C4C-48B9-B179-332D47F2AE1B}.Release|x86.Build.0 = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|x64.Build.0 = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Debug|x86.Build.0 = Debug|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|x64.ActiveCfg = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|x64.Build.0 = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|x86.ActiveCfg = Release|Any CPU
-		{B2A3686D-3C80-4F8A-96AE-9D418DFE9166}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 using Dapr.Appointment.Dto;
 using Dapr.Appointment.Models;
 using Dapr.Appointment.State;
@@ -13,7 +12,7 @@ namespace Dapr.Appointment.Controllers;
 public class AppointmentController : ControllerBase
 {
 
-    [HttpPost("v1/schedule")]
+    [HttpPost("schedule")]
     public async Task<ActionResult<ScheduleAppointment>> ScheduleAppointment(ScheduleAppointment appointment, [FromServices] DaprClient daprClient)
     {
         var patient = await daprClient.InvokeMethodAsync<PatientDto, PatientDto>(HttpMethod.Post, "patient-service", "patient", new PatientDto { Id = appointment.PatientId, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName });
@@ -31,27 +30,8 @@ public class AppointmentController : ControllerBase
         return appointment;
     }
 
-    [HttpPost("schedule")]
-    public async Task<ActionResult<ScheduleAppointment>> ScheduleAppointmentV2(ScheduleAppointment appointment, [FromServices] DaprClient daprClient)
-    {
-        var data = new Dapr.Patient_Grpc.Generated.Item { Id = appointment.PatientId.HasValue ? appointment.PatientId.ToString() : string.Empty, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName };
-        var patient = await daprClient.InvokeMethodGrpcAsync<Dapr.Patient_Grpc.Generated.Item, Dapr.Patient_Grpc.Generated.Item>("patient-service", "patient", data);
-
-        appointment.PatientId = Guid.Parse(patient.Id);
-        appointment.AppointmentId ??= Guid.NewGuid();
-
-        var state = await daprClient.GetStateEntryAsync<AppointmentState>(Constants.StateStore, appointment.AppointmentId.ToString());
-        state.Value ??= new AppointmentState { CreatedOn = DateTime.UtcNow };
-
-        state.Value.UpdatedOn = DateTime.UtcNow;
-        state.Value.Appointment = appointment;
-        await state.SaveAsync();
-
-        return appointment;
-    }
-
     [HttpPost("submitclaim")]
-    public async Task<ActionResult> SubmitAppointmentClaim(SubmitClaim claim, [FromServices] DaprClient daprClient)
+    public async Task<ActionResult<ScheduleAppointment>> SubmitAppointmentClaim(SubmitClaim claim, [FromServices] DaprClient daprClient)
     {
         var state = await daprClient.GetStateAsync<AppointmentState>(Constants.StateStore, claim.AppointmentId.ToString());
 
@@ -67,7 +47,7 @@ public class AppointmentController : ControllerBase
         state.Appointment.Closed = true;
         await daprClient.SaveStateAsync<AppointmentState>(Constants.StateStore, state.Appointment.AppointmentId.ToString(), state);
 
-        return Ok();
+        return state.Appointment;
     }
 
 }
