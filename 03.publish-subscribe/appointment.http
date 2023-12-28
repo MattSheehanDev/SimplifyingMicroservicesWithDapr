@@ -17,18 +17,22 @@ Content-Type: application/json
 @appointmentId = {{scheduleRequest.response.body.$.appointmentId}}
 @patientId = {{scheduleRequest.response.body.$.patientId}}
 
-# @name scheduleRequest
-POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/invoke/appointment-service/method/schedule HTTP/1.1
+# @name claimRequest
+POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/invoke/appointment-service/method/submitclaim HTTP/1.1
 Content-Type: application/json
 
 {
     "AppointmentId": "{{appointmentId}}",
-    "PatientId": "{{patientId}}",
-    "AppointmentDateTime": "2024-01-11T09:00:00",
-    "PatientFirstName": "Matt",
-    "PatientLastName": "Sheehan"
+    "Amount": 100.00
 }
 
 ###
-@appointmentId = {{scheduleRequest.response.body.$.appointmentId}}
-GET http://{{url}}:{{apptserviceDaprPort}}/v1.0/state/statestore/{{appointmentId}} HTTP/1.1
+@topicName = ClaimSubmitted
+POST http://{{url}}:{{apptserviceDaprPort}}/v1.0/publish/pubsub/{{topicName}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "appointmentId": "{{appointmentId}}",
+    "patientId": "{{patientId}}",
+    "claimAmount": 150.00
+}
