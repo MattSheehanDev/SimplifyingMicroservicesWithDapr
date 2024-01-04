@@ -24,21 +24,6 @@ public class BalanceController : ControllerBase
         return Ok();
     }
 
-    [Topic(Constants.PubSub, Topics.OnClaimSubmitted, "event.type ==\"balance.v2\"", 2)]
-    [HttpPost("v2/balance")]
-    public async Task<ActionResult> AddBalanceV2(AppointmentClaim claim, [FromServices] DaprClient daprClient)
-    {
-        var state = await daprClient.GetStateEntryAsync<BalanceState>(Constants.StateStore, claim.PatientId.ToString());
-        state.Value ??= new BalanceState {CreatedOn = DateTime.UtcNow};
-
-        state.Value.UpdatedOn = DateTime.UtcNow;
-        state.Value.Claims.Add(claim);
-        state.Value.PatientId = claim.PatientId;
-        await state.SaveAsync();
-
-        return Ok();
-    }
-
     [Topic(Constants.PubSub, Topics.OnClaimSubmitted)]
     [HttpPost("balance")]
     public async Task<ActionResult> AddBalance(AppointmentClaim claim, [FromServices] DaprClient daprClient)
