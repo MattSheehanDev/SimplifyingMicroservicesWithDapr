@@ -55,7 +55,10 @@
             "httpPort": 5010,
             "grpcPort": 50010,
             "metricsPort": 9091,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-appointment",
@@ -81,8 +84,11 @@
             "appPort": 5005,
             "httpPort": 5050,
             "grpcPort": 50050,
-            "metricsPort": 9091,
-            "resourcesPath": "./components",
+            "metricsPort": 9094,
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-actor",
@@ -109,7 +115,10 @@
             "httpPort": 5020,
             "grpcPort": 50020,
             "metricsPort": 9092,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-patient",
@@ -135,8 +144,11 @@
             "appPort": 5004,
             "httpPort": 5040,
             "grpcPort": 50040,
-            "metricsPort": 9092,
-            "resourcesPath": "./components",
+            "metricsPort": 9093,
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-balance",

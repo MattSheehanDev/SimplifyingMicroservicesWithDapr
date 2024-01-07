@@ -26,7 +26,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build-patient-grpc",
+            "label": "build-grpc-patient",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -43,7 +43,10 @@
             "httpPort": 5010,
             "grpcPort": 50010,
             "metricsPort": 9091,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-appointment",
@@ -70,7 +73,10 @@
             "httpPort": 5020,
             "grpcPort": 50020,
             "metricsPort": 9092,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-patient",
@@ -97,10 +103,13 @@
             "httpPort": 5020,
             "grpcPort": 50020,
             "metricsPort": 9092,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "grpc",
             "enableMtls": false,
-            "label": "daprd-debug-patient-grpc",
+            "label": "daprd-debug-grpc-patient",
             "type": "daprd",
             "problemMatcher": {
                 "pattern": [
@@ -126,11 +135,6 @@
         {
             "appId": "patient-service",
             "label": "daprd-down-patient",
-            "type": "daprd-down"
-        },
-        {
-            "appId": "patient-service",
-            "label": "daprd-down-grpc",
             "type": "daprd-down"
         }
     ]

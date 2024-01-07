@@ -24,14 +24,17 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
         {
             "appId": "appointment-service",
             "appPort": 5003,
             "httpPort": 5010,
             "grpcPort": 50010,
             "metricsPort": 9091,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-appointment",
@@ -58,7 +61,10 @@
             "httpPort": 5020,
             "grpcPort": 50020,
             "metricsPort": 9092,
-            "resourcesPath": "./components",
+            "resourcesPaths": [
+                "./components"
+            ],
+            "config": "./config/config.yaml",
             "appProtocol": "http",
             "enableMtls": false,
             "label": "daprd-debug-patient",

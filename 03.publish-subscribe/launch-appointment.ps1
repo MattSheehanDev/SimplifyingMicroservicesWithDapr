@@ -1,0 +1,1 @@
+dapr run --app-id appointment-service --app-port 5003 --dapr-http-port 5010 --dapr-grpc-port 50010 --metrics-port 9091 --resources-path ./components --config ./config/config.yaml -- dotnet run --project Dapr.Appointment --urls http://+:5003

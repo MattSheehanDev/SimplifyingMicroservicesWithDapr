@@ -1,0 +1,1 @@
+dapr run --app-id patient-service --app-port 5004 --dapr-http-port 5040 --dapr-grpc-port 50040 --metrics-port 9093 --resources-path ./components --config ./config/config.yaml -- dotnet run --project Dapr.Patient --urls http://+:5004

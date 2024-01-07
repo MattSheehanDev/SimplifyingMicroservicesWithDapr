@@ -3,7 +3,6 @@ using Dapr.Appointment.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Dapr.Client;
 using Dapr.Balance;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Dapr.Common;
 using Dapr;
 

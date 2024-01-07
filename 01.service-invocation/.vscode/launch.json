@@ -45,7 +45,7 @@
             "name": ".NET Core Launch w/Dapr (Patient-Grpc)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "daprd-debug-patient-grpc",
+            "preLaunchTask": "daprd-debug-grpc-patient",
             "program": "${workspaceFolder}/Dapr.Patient-Grpc/bin/Debug/net8.0/Dapr.Patient-Grpc.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Dapr.Patient-Grpc",
@@ -59,7 +59,7 @@
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             },
-            "postDebugTask": "daprd-down-grpc"
+            "postDebugTask": "daprd-down-patient"
         }
     ],
     "compounds": [

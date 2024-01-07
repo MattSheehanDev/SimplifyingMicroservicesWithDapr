@@ -23,12 +23,13 @@ public class AppointmentActor : Actor, IAppointmentActor
         appointment.PatientId = patient.Id;
         appointment.AppointmentId ??= Guid.NewGuid();
 
-        var state = await _daprClient.GetStateEntryAsync<AppointmentState>(Constants.StateStore, appointment.AppointmentId.ToString());
-        state.Value ??= new AppointmentState { CreatedOn = DateTime.UtcNow };
-
-        state.Value.UpdatedOn = DateTime.UtcNow;
-        state.Value.Appointment = appointment;
-        await state.SaveAsync();
+        var state = await StateManager.TryGetStateAsync<AppointmentState>(appointment.AppointmentId.ToString());
+        
+        var apptState = state.HasValue ? state.Value : new AppointmentState { CreatedOn = DateTime.UtcNow };
+        apptState.UpdatedOn = DateTime.UtcNow;
+        apptState.Appointment = appointment;
+        
+        await StateManager.SetStateAsync<AppointmentState>(appointment.AppointmentId.ToString(), apptState);
 
         return appointment;
     }
