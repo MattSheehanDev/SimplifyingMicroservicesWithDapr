@@ -14,3 +14,6 @@ We are adding a new microservice to handle patient balances called `Dapr.Balance
    - `appointment.http`
 3. Content-based routing
    - change handler based off of cloudevent type
+4. Switch to RabbitMQ
+   - `rabbitmq.ps1`
+   - `guest:guest`
