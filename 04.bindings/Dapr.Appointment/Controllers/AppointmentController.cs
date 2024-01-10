@@ -15,7 +15,11 @@ public class AppointmentController : ControllerBase
     [HttpPost("schedule")]
     public async Task<ActionResult<ScheduleAppointment>> ScheduleAppointment(ScheduleAppointment appointment, [FromServices] DaprClient daprClient)
     {
-        var patient = await daprClient.InvokeMethodAsync<PatientDto, PatientDto>(HttpMethod.Post, "patient-service", "patient", new PatientDto { Id = appointment.PatientId, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName });
+        var patient = await daprClient.InvokeMethodAsync<PatientDto, PatientDto>(
+            HttpMethod.Post,
+            "patient-service",
+            "patient",
+            new PatientDto { Id = appointment.PatientId, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName });
 
         appointment.PatientId = patient.Id;
         appointment.AppointmentId ??= Guid.NewGuid();
@@ -40,12 +44,20 @@ public class AppointmentController : ControllerBase
 
         var metadata = new Dictionary<string, string>
         {
-            { "cloudevent.type", "balance.v1" }
+            ["cloudevent.type"] = "balance.v1"
         };
-        await daprClient.PublishEventAsync<AppointmentClaim>(Constants.PubSub, Topics.OnClaimSubmitted, new AppointmentClaim { AppointmentId = claim.AppointmentId, PatientId = state.Appointment!.PatientId, ClaimAmount = claim.Amount }, metadata);
+        await daprClient.PublishEventAsync<AppointmentClaim>(
+            Constants.PubSub,
+            Topics.OnClaimSubmitted,
+            new AppointmentClaim { AppointmentId = claim.AppointmentId, PatientId = state.Appointment!.PatientId, ClaimAmount = claim.Amount },
+            metadata);
 
         state.Appointment.Closed = true;
-        await daprClient.SaveStateAsync<AppointmentState>(Constants.StateStore, state.Appointment.AppointmentId.ToString(), state);
+
+        await daprClient.SaveStateAsync<AppointmentState>(
+            Constants.StateStore,
+            state.Appointment.AppointmentId.ToString(),
+            state);
 
         return state.Appointment;
     }

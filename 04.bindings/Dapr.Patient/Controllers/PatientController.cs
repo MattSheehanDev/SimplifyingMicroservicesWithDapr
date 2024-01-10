@@ -32,10 +32,14 @@ public class PatientController : ControllerBase
         await content.CopyToAsync(ms);
 
         var metadata = new Dictionary<string, string>
-            {
-                { "blobName", $"{patient.Id}.png" }
-            };
-        await daprClient.InvokeBindingAsync("blobstorage", "create", data: Convert.ToBase64String(ms.ToArray()), metadata: metadata);
+        {
+            ["blobName"] = $"{patient.Id}.png"
+        };
+        await daprClient.InvokeBindingAsync(
+            "blobstorage",
+            "create",
+            data: Convert.ToBase64String(ms.ToArray()),
+            metadata: metadata);
 
         return patient;
     }

@@ -14,7 +14,11 @@ public class AppointmentController : ControllerBase
     [HttpPost("schedule")]
     public async Task<ActionResult<ScheduleAppointment>> ScheduleAppointment(ScheduleAppointment appointment, [FromServices] DaprClient daprClient)
     {
-        var patient = await daprClient.InvokeMethodAsync<PatientDto, PatientDto>(HttpMethod.Post, "patient-service", "patient", new PatientDto { Id = appointment.PatientId, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName });
+        var patient = await daprClient.InvokeMethodAsync<PatientDto, PatientDto>(
+            HttpMethod.Post,
+            "patient-service",
+            "patient",
+            new PatientDto { Id = appointment.PatientId, FirstName = appointment.PatientFirstName, LastName = appointment.PatientLastName });
 
         appointment.PatientId = patient.Id;
         appointment.AppointmentId ??= Guid.NewGuid();

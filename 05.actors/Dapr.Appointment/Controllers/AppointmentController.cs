@@ -23,19 +23,30 @@ public class AppointmentController : ControllerBase
     [HttpPost("submitclaim")]
     public async Task<ActionResult<ScheduleAppointment>> SubmitAppointmentClaim(SubmitClaim claim, [FromServices] DaprClient daprClient)
     {
-        var state = await daprClient.GetStateAsync<AppointmentState>(Constants.StateStore, claim.AppointmentId.ToString());
+        var state = await daprClient.InvokeBindingAsync<AppointmentState?, AppointmentState?>("db", "get", null, new Dictionary<string, string?>
+        {
+            ["key"] = claim.AppointmentId.ToString()
+        });
 
         if (state is null) return NotFound();
         if (state.Appointment!.Closed) return Ok();
 
         var metadata = new Dictionary<string, string>
         {
-            { "cloudevent.type", "balance.v1" }
+            ["cloudevent.type"] = "balance.v1"
         };
-        await daprClient.PublishEventAsync<AppointmentClaim>(Constants.PubSub, Topics.OnClaimSubmitted, new AppointmentClaim { AppointmentId = claim.AppointmentId, PatientId = state.Appointment!.PatientId, ClaimAmount = claim.Amount }, metadata);
+        await daprClient.PublishEventAsync<AppointmentClaim>(
+            Constants.PubSub,
+            Topics.OnClaimSubmitted,
+            new AppointmentClaim { AppointmentId = claim.AppointmentId, PatientId = state.Appointment!.PatientId, ClaimAmount = claim.Amount },
+            metadata);
 
         state.Appointment.Closed = true;
-        await daprClient.SaveStateAsync<AppointmentState>(Constants.StateStore, state.Appointment.AppointmentId.ToString(), state);
+
+        await daprClient.InvokeBindingAsync("db", "create", state, new Dictionary<string, string>
+        {
+            ["key"] = state.Appointment.AppointmentId.ToString()!
+        });
 
         return state.Appointment;
     }

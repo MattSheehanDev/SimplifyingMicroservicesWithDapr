@@ -23,13 +23,19 @@ public class AppointmentActor : Actor, IAppointmentActor
         appointment.PatientId = patient.Id;
         appointment.AppointmentId ??= Guid.NewGuid();
 
-        var state = await StateManager.TryGetStateAsync<AppointmentState>(appointment.AppointmentId.ToString());
-        
-        var apptState = state.HasValue ? state.Value : new AppointmentState { CreatedOn = DateTime.UtcNow };
+        var state = await _daprClient.InvokeBindingAsync<AppointmentState?, AppointmentState?>("db", "get", null, new Dictionary<string, string>
+        {
+            ["key"] = appointment.AppointmentId.ToString()
+        });
+
+        var apptState = state ?? new AppointmentState { CreatedOn = DateTime.UtcNow };
         apptState.UpdatedOn = DateTime.UtcNow;
         apptState.Appointment = appointment;
-        
-        await StateManager.SetStateAsync<AppointmentState>(appointment.AppointmentId.ToString(), apptState);
+
+        await _daprClient.InvokeBindingAsync("db", "create", apptState, new Dictionary<string, string>
+        {
+            ["key"] = appointment.AppointmentId.ToString()
+        });
 
         return appointment;
     }
